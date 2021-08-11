@@ -10,6 +10,8 @@ import android.app.NotificationManager;
 import android.content.Context;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
+import android.media.RingtoneManager;
+import android.net.Uri;
 import android.os.Bundle;
 import android.view.View;
 
@@ -48,13 +50,14 @@ public class MainActivity extends AppCompatActivity {
 
     private void sendNotification() {
         Bitmap bitmap = BitmapFactory.decodeResource(getResources(),R.mipmap.ic_launcher);
-
+        Uri uri = RingtoneManager.getDefaultUri(RingtoneManager.TYPE_NOTIFICATION);
         Notification notification = new NotificationCompat.Builder(this,MyApplication.CHANNEL_ID)
                 .setContentTitle(TITLE_PUSH_NOTIFICATION)
                 .setContentText(CONTENT_PUSH_NOTIFICATION)
                 .setSmallIcon(R.drawable.ic_baseline_notifications_24)
                 .setStyle(new NotificationCompat.BigTextStyle().bigText(CONTENT_PUSH_NOTIFICATION))
                 .setLargeIcon(bitmap)
+                .setSound(uri)
                 .setColor(getResources().getColor(R.color.pink))
                 .build();
         NotificationManagerCompat managerCompat = NotificationManagerCompat.from(this);
@@ -69,12 +72,13 @@ public class MainActivity extends AppCompatActivity {
     }
     private void sendNotification_2() {
         Bitmap bitmap = BitmapFactory.decodeResource(getResources(),R.drawable.hoadeptrai);
-
+        Uri sound = Uri.parse("android.resource://"+getPackageName()+"/"+R.raw.custom_notification);
         Notification notification = new NotificationCompat.Builder(this,MyApplication.CHANNEL_ID)
                 .setContentTitle("Notification Turtorial")
                 .setContentText("Push local notification channel 2")
                 .setSmallIcon(R.drawable.ic_launcher_background)
                 .setLargeIcon(bitmap)
+                .setSound(sound)
                 .setStyle(new NotificationCompat.BigPictureStyle().bigPicture(bitmap).bigLargeIcon(null))
                 .setColor(getResources().getColor(R.color.purple_200))
                 .build();
