@@ -5,13 +5,21 @@
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
+        android:orientation="vertical"
         android:gravity="center">
 
         <Button
             android:id="@+id/btn_send_notification"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="send notification"
+            android:text="send notification channel 1"
+            />
+        <Button
+            android:id="@+id/btn_send_notification_2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="send notification channel 2"
+            android:layout_marginTop="20dp"
             />
     </LinearLayout>
 </layout>

@@ -31,6 +31,12 @@ public class MainActivity extends AppCompatActivity {
                 sendNotification();
             }
         });
+        binding.btnSendNotification2.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                sendNotification_2();
+            }
+        });
     }
 
     private void sendNotification() {
@@ -42,6 +48,26 @@ public class MainActivity extends AppCompatActivity {
                 .setSmallIcon(R.drawable.ic_launcher_background)
                 .setLargeIcon(bitmap)
                 .setColor(getResources().getColor(R.color.pink))
+                .build();
+        NotificationManagerCompat managerCompat = NotificationManagerCompat.from(this);
+        managerCompat.notify(getNotificationId(),notification);
+
+
+//        NotificationManager manager = (NotificationManager) getSystemService(Context.NOTIFICATION_SERVICE);
+//        if (manager != null){
+//            manager.notify(getNotificationId(),notification);
+//        }
+
+    }
+    private void sendNotification_2() {
+        Bitmap bitmap = BitmapFactory.decodeResource(getResources(),R.drawable.ic_launcher_foreground);
+
+        Notification notification = new NotificationCompat.Builder(this,MyApplication.CHANNEL_ID)
+                .setContentTitle("Notification Turtorial")
+                .setContentText("Push local notification channel 2")
+                .setSmallIcon(R.drawable.ic_launcher_background)
+                .setLargeIcon(bitmap)
+                .setColor(getResources().getColor(R.color.purple_200))
                 .build();
         NotificationManagerCompat managerCompat = NotificationManagerCompat.from(this);
         managerCompat.notify(getNotificationId(),notification);

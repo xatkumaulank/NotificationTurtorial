@@ -1,5 +1,8 @@
 <resources>
     <string name="app_name">NotificationTurtorial</string>
     <string name="channel_name">My Chanel</string>
-    <string name="channel_description">This í my chanel</string>
+    <string name="channel_description">This is my chanel</string>
+
+    <string name="channel_name_2">My Chanel 2</string>
+    <string name="channel_description_2">This is my chanel 2</string>
 </resources>
